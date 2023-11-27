@@ -12,6 +12,13 @@ add_executable (
   ${COMPONENT_TESTS}
 )
 
+# Include directories for the library.
+target_include_directories (
+  ${COMPONENT_TESTS}
+    PUBLIC
+      ${CMAKE_CURRENT_LIST_DIR}/../include
+)
+
 # Gather source files for the component tests.
 file (
   GLOB SOURCES
@@ -30,8 +37,8 @@ target_sources (
 target_link_libraries (
   ${COMPONENT_TESTS}
     ${COMPONENT_LIB}
-    gtest
-    gtest_main
+    GTest::GTest
+    GTest::Main
 )
 
 # Register the tests with CTest.

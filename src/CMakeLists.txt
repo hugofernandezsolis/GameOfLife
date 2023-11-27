@@ -21,7 +21,7 @@ set (
     Window          # Window
 )
 
-add_executable (
+add_library (
   ${PROJECT_NAME}
 )
 
