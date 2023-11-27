@@ -21,7 +21,17 @@ set (
     Window          # Window
 )
 
+add_executable (
+  ${PROJECT_NAME}
+)
+
 # Iterate over each subdirectory
 foreach(COMPONENT ${COMPONENTS})
+  # Enter into the component
   add_subdirectory(${COMPONENT})
+  # Link the new lib to the executable
+  target_link_libraries (
+    ${PROJECT_NAME}
+      ${COMPONENT}_lib
+  )
 endforeach()
